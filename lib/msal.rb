@@ -3,6 +3,7 @@
 require_relative "msal/version"
 
 module Msal
-  class Error < StandardError; end
+  class AuthorizationError < StandardError; end
+
   # Your code goes here...
 end

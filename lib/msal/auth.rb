@@ -4,8 +4,6 @@ module Msal
     class Auth
         MANDATORY_PARAMS = [:client_id, :scope]
 
-        attr_accessor :code
-
         def initialize(payload = {})
             @client_id = payload[:client_id]
             @tenant = payload[:tenant] || 'common'

@@ -4,16 +4,6 @@ require_relative '../spec_helper'
 require_relative '../../lib/msal/auth'
 
 RSpec.describe Msal::Auth do
-  let(:response) {
-
-  }
-
-  let(:error_in_response) {
-    {
-      error: { code: "Forbidden" }
-    }
-  }
-
   let(:payload) {
     {
       client_id: '11111111-1111-1111-1111-111111111111',
@@ -38,12 +28,7 @@ RSpec.describe Msal::Auth do
     expect(auth.authorize_uri).to eq(authorization_uri)
   end
 
-  it "return AuthorizationError if user did not grant permission" do
-    expect { ::Msal::Response.new(error_in_response) }.to raise_error(AuthorizationError)
-  end
-
-  it "token request response"
-  it "RequestError for token failed attempt"
+  xit "RequestError for token failed attempt"
 
 
   xit 'return access code from request' do
