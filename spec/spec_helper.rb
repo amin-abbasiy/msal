@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-require "msal"
+require "webmock/rspec"
+require_relative '../lib/msal'
+require "super_diff/rspec"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

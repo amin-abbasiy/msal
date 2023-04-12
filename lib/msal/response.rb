@@ -5,11 +5,9 @@ module Msal
     end
 
     def code
-      begin
-        @response.code
-      rescue ::Msal::AuthorizationError => e
-        puts e
-      end
+      raise ::Msal::AuthorizationError if @response[:error]
+
+      @response[:code]
     end
   end
 end
