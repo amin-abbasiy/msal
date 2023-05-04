@@ -8,13 +8,13 @@ Gem::Specification.new do |spec|
   spec.authors       = ["amin-abbasiy"]
   spec.email         = ["uamin.en@gamil.com"]
 
-  spec.summary       = "Authentication library for MS Graph API"
+  spec.summary       = "Authentication library for MS Graph API, Library is under development and not ready to use"
   spec.description   = "Use this library to authenticate with MS Graph API"
   spec.homepage      = "https://amin-abbasi.com/msal"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
-  spec.metadata["allowed_push_host"] = ""
+  spec.metadata["allowed_push_host"] = "https://rubygems.org/"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/amin-abbasiy/msal"
