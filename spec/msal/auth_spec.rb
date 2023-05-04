@@ -27,18 +27,4 @@ RSpec.describe Msal::Auth do
     auth = ::Msal::Auth.new(payload)
     expect(auth.authorize_uri).to eq(authorization_uri)
   end
-
-  xit "RequestError for token failed attempt"
-
-
-  xit 'return access code from request' do
-    stub_request(:post, 'https://login.microsoftonline.com/common/oauth2/v2.0/token')
-      .with(body: payload)
-      .to_return(status: 200, body: 'codecode')
-
-    auth = ::Msal::Auth.new(payload)
-    data = auth.code
-
-    expect(data).to eq('codecode')
-  end
 end
