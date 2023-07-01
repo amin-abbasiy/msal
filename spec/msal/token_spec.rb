@@ -58,7 +58,7 @@ RSpec.describe ::Msal::Token do
                    body: sample_response.to_json
                  })
 
-    response = ::Msal::Token.new(payload).request
+    response = ::Msal::Token.new(payload, 'common').request
 
     expect(response.body).to eq(sample_response.to_json)
   end
@@ -73,6 +73,6 @@ RSpec.describe ::Msal::Token do
         body: error_response.to_json
     )
 
-    expect { ::Msal::Token.new(invalid_payload).request }.to raise_error(Msal::AuthorizationError)
+    expect { ::Msal::Token.new(invalid_payload, 'common').request }.to raise_error(Msal::AuthorizationError)
   end
 end
