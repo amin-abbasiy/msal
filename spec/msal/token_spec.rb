@@ -25,35 +25,54 @@ RSpec.describe ::Msal::Token do
   end
 
   let(:headers) do
-    { 'Content-Type' => 'application/json' }
+    {
+      'Accept' => '*/*',
+      'User-Agent' => 'Ruby'
+    }
   end
 
   let(:sample_response) {
     {
-      "token_type": "Bearer",
-      "scope": "user.read mail.read",
+      "token_type": 'Bearer',
+      "scope": 'user.read mail.read',
       "expires_in": 3600,
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q",
-      "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4"
+      "access_token": 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q',
+      "refresh_token": 'AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4'
     }
   }
-  before do
+
+  let(:error_response) {
+    {
+      "error": 'Error'
+    }
+  }
+
+  it 'Return Access Token' do
     stub_request(:post, 'https://login.microsoftonline.com/common/oauth2/v2.0/token')
-      .with(body: invalid_payload, headers: headers)
-      .to_return(status: 403, body: "")
+      .with({
+              body: payload,
+              headers: headers
+            })
+      .to_return({
+                   status: 200,
+                   body: sample_response.to_json
+                 })
+
+    response = ::Msal::Token.new(payload).request
+
+    expect(response.body).to eq(sample_response.to_json)
   end
 
-  it "RequestError for token failed attempt" do
-    expect { ::Msal::Token.new(invalid_payload).request }.to raise_error(::Msal::AuthorizationError)
-  end
-
-
-  xit 'return access code from request' do
+  it 'Request Error' do
     stub_request(:post, 'https://login.microsoftonline.com/common/oauth2/v2.0/token')
-      .with(body: payload)
-      .to_return(status: 200, body: 'codecode')
+      .with(
+        body: invalid_payload,
+        headers: headers
+      ).to_return(
+        status: 403,
+        body: error_response.to_json
+    )
 
-    auth = ::Msal::Auth.new(payload)
-    expect(auth.request).to eq('codecode')
+    expect { ::Msal::Token.new(invalid_payload).request }.to raise_error(Msal::AuthorizationError)
   end
 end
