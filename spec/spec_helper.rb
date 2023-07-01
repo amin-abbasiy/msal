@@ -3,6 +3,7 @@
 require "webmock/rspec"
 require_relative '../lib/msal'
 require "super_diff/rspec"
+WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -15,3 +16,5 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+
