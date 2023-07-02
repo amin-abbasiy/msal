@@ -6,8 +6,8 @@ ruby "3.2.2"
 # Specify your gem's dependencies in msal.gemspec
 gemspec
 
-gem "rake", "~> 13.0"
+gem 'rake', '~> 13.0', '>= 13.0.6'
 
-gem "rspec", "~> 3.0"
+gem 'rspec', '~> 3.12'
 
-gem "rubocop", "~> 0.80"
+gem 'rubocop', '~> 1.54'
