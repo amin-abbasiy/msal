@@ -13,6 +13,6 @@ jobs:
         ruby-version: 3.2.2
     - name: Run the default task
       run: |
-        gem install bundler -v 2.2.3
+        gem install bundler -v 2.4.10
         bundle install
         bundle exec rake
