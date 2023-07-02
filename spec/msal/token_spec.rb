@@ -4,7 +4,6 @@ require_relative '../spec_helper'
 require_relative '../../lib/msal/token'
 
 RSpec.describe ::Msal::Token do
-
   context 'successful' do
     let(:payload) do
       {
