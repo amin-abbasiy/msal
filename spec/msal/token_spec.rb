@@ -1,13 +1,9 @@
+# frozen_string_literal: true
+
 require_relative '../spec_helper'
 require_relative '../../lib/msal/token'
 
 RSpec.describe ::Msal::Token do
-  let(:headers) do
-    {
-      'Accept' => '*/*',
-      'User-Agent' => 'Ruby'
-    }
-  end
 
   context 'successful' do
     let(:payload) do
@@ -33,8 +29,7 @@ RSpec.describe ::Msal::Token do
     it 'Return Access Token' do
       stub_request(:post, 'https://login.microsoftonline.com/common/oauth2/v2.0/token')
         .with({
-                body: payload,
-                headers: headers
+                body: payload
               })
         .to_return({
                      status: 200,
@@ -65,8 +60,7 @@ RSpec.describe ::Msal::Token do
     it 'Request Error' do
       stub_request(:post, 'https://login.microsoftonline.com/common/oauth2/v2.0/token')
         .with(
-          body: invalid_payload,
-          headers: headers
+          body: invalid_payload
         ).to_return(
           status: 403,
           body: error_response.to_json
