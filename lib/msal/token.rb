@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Msal
+  # Used for request and Acquire tokens from Ms Graph
   class Token
     def initialize(params, tenant)
       @tenant = tenant
@@ -16,12 +19,12 @@ module Msal
 
     def params
       {
-        "client_id" => @client_id,
-        "scope" => @scope,
-        "code" => @code,
-        "redirect_uri" => @redirect_uri,
-        "grant_type" => @grant_type,
-        "client_secret" => @client_secret
+        'client_id' => @client_id,
+        'scope' => @scope,
+        'code' => @code,
+        'redirect_uri' => @redirect_uri,
+        'grant_type' => @grant_type,
+        'client_secret' => @client_secret
       }
     end
 

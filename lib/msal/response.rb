@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Msal
+  # Parse Authorization response
   class Response
     def initialize(response)
       @response = response
