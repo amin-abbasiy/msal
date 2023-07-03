@@ -2,6 +2,7 @@
 
 require_relative '../spec_helper'
 require_relative '../../lib/msal/token'
+require_relative '../../lib/msal/msal_error'
 
 RSpec.describe ::Msal::Token do
   context 'successful' do
@@ -65,7 +66,7 @@ RSpec.describe ::Msal::Token do
           body: error_response.to_json
         )
 
-      expect { ::Msal::Token.new(invalid_payload, 'common').request }.to raise_error(Msal::AuthorizationError)
+      expect { ::Msal::Token.new(invalid_payload, 'common').request }.to raise_error(::Msal::MsalError)
     end
   end
 end

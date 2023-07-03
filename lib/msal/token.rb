@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'msal_error'
+
 module Msal
   # Used for request and Acquire tokens from Ms Graph
   class Token
@@ -14,7 +16,7 @@ module Msal
       response = Net::HTTP.post(url, params.to_json, headers)
       return response if response.is_a?(Net::HTTPSuccess)
 
-      raise ::Msal::AuthorizationError
+      raise ::Msal::MsalError.new(:authorization_error, 'Authorization failed!')
     end
 
     def params
