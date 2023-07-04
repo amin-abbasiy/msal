@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 module Msal
+  # User for common configuration
   class Config
-    TENANT = 'common'.freeze
-    BASE_URL = 'https://login.microsoftonline.com'.freeze
-    AUTHORIZATION_PATH = 'oauth2/v2.0/authorize'.freeze
-    TOKEN_PATH = 'oauth2/v2.0/token'.freeze
-    HTTP_HEADERS = { 'Content-Type' => 'application/json' }
+    TENANT = 'common'
+    BASE_URL = 'https://login.microsoftonline.com'
+    AUTHORIZATION_PATH = 'oauth2/v2.0/authorize'
+    TOKEN_PATH = 'oauth2/v2.0/token'
+    HTTP_HEADERS = { 'Content-Type' => 'application/json' }.freeze
     AUTH_RESPONSE_MODE = 'query'
     AUTH_RESPONSE_TYPE = 'code'
   end

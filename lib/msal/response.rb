@@ -8,7 +8,7 @@ module Msal
     end
 
     def code
-       raise ::Msal::MsalError.new(:authorization_error, 'Authentication failed!') if @response[:error]
+      raise ::Msal::MsalError.new(:authorization_error, 'Authentication failed!') if @response[:error]
 
       @response[:code]
     end
