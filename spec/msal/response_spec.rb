@@ -21,7 +21,7 @@ RSpec.describe Msal::Response do
   it 'return AuthorizationError if user did not grant permission' do
     response = ::Msal::Response.new(error_in_response)
 
-    expect { response.code }.to raise_error(::Msal::AuthorizationError)
+    expect { response.code }.to raise_error(::Msal::MsalError)
   end
 
   it 'token request response' do

@@ -1,12 +1,18 @@
 # frozen_string_literal: true
 
 require_relative 'msal_error'
+require_relative 'config'
 
 module Msal
   # Used for request and Acquire tokens from Ms Graph
   class Token
-    def initialize(params, tenant)
+    def initialize(params,
+                   tenant = Msal::Config::TENANT,
+                   base_url = ::Msal::Config::BASE_URL,
+                   path = ::Msal::Config::TOKEN_PATH)
       @tenant = tenant
+      @base_url = base_url
+      @path = path
       params.keys.map do |key|
         instance_variable_set("@#{key}", params[key])
       end
@@ -31,11 +37,11 @@ module Msal
     end
 
     def url
-      URI("https://login.microsoftonline.com/#{@tenant || 'common'}/oauth2/v2.0/token")
+      URI("#{@base_url}/#{@tenant}/#{@path}")
     end
 
     def headers
-      { 'Content-Type' => 'application/json' }
+      ::Msal::Config::HTTP_HEADERS
     end
   end
 end
