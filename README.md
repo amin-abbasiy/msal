@@ -48,12 +48,12 @@ Then with response data you are able to make request for token
 
 ```ruby
 ::Msal::Token.new(
-        client_id: '11111111-1111-1111-1111-111111111111',
-        scope: 'user.read mail.read',
-        code: '9a7daa06-9ac9-45ef-bd99-471392fb37a3',
-        redirect_uri: 'http://localhost/app',
-        grant_type: 'authorization_code',
-        client_secret: '9a7daa06-9ac9-45ef-bd99-471392fb37a3'
+        client_id: 'your_client_id',
+        scope: 'your_defined_scope',
+        code: 'code form auth response',
+        redirect_uri: 'your_redirect_uri',
+        grant_type: '`authorization_code` by default',
+        client_secret: 'your_client_secret'
 )
 ```
 
