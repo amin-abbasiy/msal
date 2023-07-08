@@ -6,7 +6,6 @@ require 'pry'
 module Msal
   # Create Authentication request for Azure Identity Service
   class Auth
-
     def initialize(authority_klass)
       @authority_klass = authority_klass
     end

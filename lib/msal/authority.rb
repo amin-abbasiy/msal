@@ -1,7 +1,6 @@
-# frozen_literal_string= true
+# frozen_string_literal: true
 
 require_relative 'config'
-require 'pry'
 
 module Msal
   # Used for shape parameters
