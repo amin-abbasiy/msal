@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'logger'
+
 module ::Msal
   # Log application activity
   class MsalLogger
