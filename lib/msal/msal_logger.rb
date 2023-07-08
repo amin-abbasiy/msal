@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'pry'
+require 'msal_logger'
 
 module ::Msal
   # Log application activity

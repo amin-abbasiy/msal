@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/msal/logger'
+require_relative '../../lib/msal/msal_logger'
 
 RSpec.describe ::Msal::MsalLogger do
   context 'Logger level' do

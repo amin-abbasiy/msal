@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'config'
-require 'pry'
 
 module Msal
   # Create Authentication request for Azure Identity Service

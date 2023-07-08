@@ -2,7 +2,6 @@
 
 require_relative '../spec_helper'
 require_relative '../../lib/msal/response'
-require 'pry'
 
 RSpec.describe Msal::Response do
   let(:correct_response) do
