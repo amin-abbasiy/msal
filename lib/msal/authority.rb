@@ -9,16 +9,11 @@ module Msal
     def initialize(type, parameters)
       @type = type
       @parameters = parameters
+
+      shape_payload
     end
 
     def shape_payload
-      case @type
-      when 'authorize'
-        authorize_payload
-      else
-        return 'Undefined Request Type'
-      end
-
       send("#{@type}_payload").each_pair do |key, value|
         ::Msal::Authority.define_method(key.to_sym) { value }
       end

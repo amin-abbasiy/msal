@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+require 'pry'
+
 require_relative '../spec_helper'
 require_relative '../../lib/msal/auth'
+require_relative '../../lib/msal/authority'
 
 RSpec.describe Msal::Auth do
   let(:payload) do
@@ -24,9 +27,14 @@ RSpec.describe Msal::Auth do
                                          '&scope=offline_access openid profile' \
                                          '&state=11111')
   end
+  context 'url creation' do
+    let(:authority_klass) do
+      ::Msal::Authority.new('authorize', payload)
+    end
 
-  it 'authorization uri' do
-    auth = ::Msal::Auth.new(payload)
-    expect(auth.authorize_uri).to eq(authorization_uri)
+    it 'authorization uri' do
+      auth = ::Msal::Auth.new(authority_klass)
+      expect(auth.authorize_uri).to eq(authorization_uri)
+    end
   end
 end

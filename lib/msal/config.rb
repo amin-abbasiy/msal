@@ -10,5 +10,6 @@ module Msal
     HTTP_HEADERS = { 'Content-Type' => 'application/json' }.freeze
     AUTH_RESPONSE_MODE = 'query'
     AUTH_RESPONSE_TYPE = 'code'
+    AUTHORIZE_MANDATORY_PARAMS = %i[client_id scope].freeze
   end
 end
