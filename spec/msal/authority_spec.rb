@@ -13,7 +13,8 @@ RSpec.describe ::Msal::Authority do
         scope: 'openid',
         redirect_uri: 'http://localhost:3000',
         state: 'state',
-        url: 'https://example.com'
+        url: 'https://example.com',
+        path: 'oauth2/v2.0/authorize'
       }
     end
 

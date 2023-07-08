@@ -35,7 +35,8 @@ module Msal
         scope: @parameters[:scope],
         redirect_uri: @parameters[:redirect_uri],
         state: @parameters[:state],
-        url: @parameters[:url]
+        url: @parameters[:url] || ::Msal::Config::BASE_URL,
+        path: @parameters[:path] || ::Msal::Config::AUTHORIZATION_PATH
       }
     end
   end
