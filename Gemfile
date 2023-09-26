@@ -19,4 +19,5 @@ end
 group :test do
   gem "webmock", "~> 3.18", ">= 3.18.1"
   gem 'super_diff', '~> 0.10.0'
+  gem 'vcr', '~> 6.2'
 end
