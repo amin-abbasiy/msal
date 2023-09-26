@@ -1,5 +1,7 @@
 # MSAL
 
+[![Ruby](https://github.com/amin-abbasiy/msal/actions/workflows/main.yml/badge.svg)](https://github.com/amin-abbasiy/msal/actions/workflows/main.yml)
+
 MS Graph Authentication Library
 
 ## Installation
