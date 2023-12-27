@@ -15,16 +15,20 @@ module Msal
     def initialize(hostname:, params: {})
       @params = params
       @hostname = hostname || Msal::Config::BASE_URL
-      @http = Net::HTTP.new(@hostname)
+      @uri = URI(@hostname)
+      @http = Net::HTTP.new(@uri.hostname, @uri.port)
+      @http.use_ssl = true
     end
 
     def get(path)
-      request = Net::HTTP::Get.new(path)
+      @uri.path = path
+      request = Net::HTTP::Get.new(@uri)
       @http.request(request)
     end
 
     def post(path)
-      request = Net::HTTP::Post.new(path)
+      @uri.path = path
+      request = Net::HTTP::Post.new(@uri)
       request.set_form_data(@params)
       @http.request(request)
     end

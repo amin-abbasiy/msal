@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'pry'
+require 'cgi'
 
 require_relative '../spec_helper'
 require_relative '../../lib/msal/auth'
@@ -34,6 +35,7 @@ RSpec.describe Msal::Auth do
 
     it 'authorization uri' do
       auth = ::Msal::Auth.new(authority_klass)
+
       expect(auth.authorize_uri).to eq(authorization_uri)
     end
   end

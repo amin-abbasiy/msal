@@ -6,7 +6,7 @@ require 'net/http'
 
 RSpec.describe Msal::HTTP do
   context '#GET' do
-    let(:http) { Msal::HTTP.new(hostname: 'example.com') }
+    let(:http) { Msal::HTTP.new(hostname: 'https://example.com') }
 
     it 'returns a response' do
       VCR.use_cassette('msal_get_success') do
@@ -18,7 +18,7 @@ RSpec.describe Msal::HTTP do
   end
 
   context '#POST' do
-    let(:http) { Msal::HTTP.new(hostname: 'example.com', params: { name: 'amin' }) }
+    let(:http) { Msal::HTTP.new(hostname: 'https://example.com', params: { name: 'amin' }) }
 
     it 'returns a response' do
       VCR.use_cassette('msal_post_success') do
